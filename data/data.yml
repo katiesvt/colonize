@@ -1,0 +1,57 @@
+---
+game_objects:
+  default_game_object:
+    components:
+      children:
+        provider: GameObjectPoolComponent
+      data:
+        provider: DataStoreComponent
+  building:
+    prototype: default_game_object
+    components:
+      data:
+        provider: DataStoreComponent
+        set:
+          state: 0
+      render:
+        provider: BuildingRendererComponent
+      behaviour:
+        provider: BuildingBehaviourComponent
+  ship:
+    prototype: building
+    components:
+      data:
+        provider: DataStoreComponent
+        set:
+          state: 2
+
+resources:
+  water:
+    storable: yes
+    perishable: no
+  foor:
+    storable: yes
+    perishable: yes
+  power:
+    storable: no
+    perishable: no
+  wood:
+    storable: yes
+    perishable: no
+
+components:
+  turbine:
+    - name: Basic Turbine
+      efficiency: 10
+  burner-coal:
+    - name: Basic Coal Burner
+      efficiency: 10
+  tank-water:
+    - name: Basic Water Tank
+      efficiency: 10
+  condenser-water:
+    - name: Basic Water Condenser
+      efficiency: 10
+  piping-water:
+    - name: Basic Piping
+      efficiency: 10
